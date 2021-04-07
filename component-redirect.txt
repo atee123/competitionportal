@@ -1,0 +1,13 @@
+<Modal className = "modalValidateRegister" isOpen = {modalOpen} toggle = {() => setModalOpen (! ModalOpen)}>
+                <div className = "containerModaluser">
+                    <ModalBody>
+                        <h1 className = "welcomeRegister"> Welcome to </h1> <img className = "iconBrableRegister" src = {brable} alt = "icone-user" /> <span className = "userRegister"> {username} </span>
+                        <img className = "iconBeer" src = {tchin} alt = "icone-user" />
+                        <Link to = "/ PaymentScreen">
+                            <label className = "linkPayment" href = ""> It's time to pay for your tour! </label>
+                        </Link>
+                        Redirection in {redirect}.
+                        <img className = "iconBeer2" src = {tchin} alt = "icone-user" />
+                    </ModalBody>
+                </div>
+            </Modal>
