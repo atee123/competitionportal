@@ -341,11 +341,11 @@ class Add extends Component {
                                             <Col>
 
                                                 
-                                                <FlashMessage duration={1000} persistOnHover={true}>
+                                                <FlashMessage duration={4000} persistOnHover={true}>
                                                     <h5 className="text-center" id="flash_message_heading" style={{color: 'green'}}>{this.state.messag}</h5>
                                                 </FlashMessage>
                                                 {/* {this.handleReset()} */}
-                                                <Redirect to="/judges"/>
+                                                {/* <Redirect to="/judges"/> */}
                                             </Col>
                                         </Form.Row>
                                     :null}
