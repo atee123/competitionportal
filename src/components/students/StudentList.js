@@ -74,24 +74,24 @@ class StudentList extends Component {
                         <Table responsive="lg">
                             <thead>
                             <tr>
-                                <th width="5%">#</th>
-                                <th width="5%">Name</th>
-                                <th width="5%">Email</th>
-                                <th width="10%">City</th>
-                                <th width="10%">Event Name</th>
-                                <th width="10%">Mobile No</th>
-                                <th width="10%">Phone No </th>
+                                <th width="">#</th>
+                                <th width="">Name</th>
+                                <th width="">Email</th>
+                                <th width="">City</th>
+                                <th width="">Event Name</th>
+                                <th width="">Mobile No</th>
+                                <th width="">Phone No </th>
                                 {/* <th width="5%">Orgnization</th> */}
-                                <th width="10%">Address</th>
-                                <th width="10%">University</th>
-                                <th width="10%">Campus</th>
-                                <th width="5%">Degree</th>
-                                <th width="5%">Country</th>
+                                <th width="">Address</th>
+                                <th width="">University</th>
+                                <th width="">Campus</th>
+                                <th width="">Degree</th>
+                                <th width="">Country</th>
                                 {/* <th width="10%">Register URL</th> */}
-                                <th width="10%">Field of Study</th>
-                                <th width="10%">LinkedIn</th>
-                                <th width="5%">Delete</th>
-                                <th width="5%">Edit</th>
+                                <th width="">Field of Study</th>
+                                <th width="">LinkedIn</th>
+                                <th width="">Delete</th>
+                                <th width="">Edit</th>
                                 
                     
                             </tr>
@@ -128,20 +128,24 @@ class StudentList extends Component {
                                             this.state.data.map((students, index) => (
 
                                                 <tr key={index}>
-                                                    <td width="5%">{index + 1}</td>
-                                                    <td width="5%">{students.first_name}</td>
-                                                    <td width="5%">{students.email}</td>
-                                                    <td width="5%">{students.city}</td>
-                                                    <td width="5%">{students.event_name}</td>
-                                                    <td width="5%">{students.mobile_no}</td>
-                                                    <td width="5%">{students.phone_no}</td>
-                                                    <td width="5%">{students.address}</td>
-                                                    <td width="5%">{students.university}</td>
-                                                    <td width="5%">{students.campus}</td>
-                                                    <td width="5%">{students.degree}</td>
-                                                    <td width="5%">{students.country}</td>
-                                                    <td width="5%">{students.field_of_study}</td>
-                                                    <td width="5%"><a href={students.linkedin_profile}>{students.linkedin_profile}</a></td>
+                                                    <td width="">{index + 1}</td>
+                                                    <td width="">{students.first_name}</td>
+                                                    <td width="">{students.email}</td>
+                                                    <td width="">{students.city}</td>
+                                                    <td width="">{students.event_name}</td>
+                                                    <td width="">{students.mobile_no}</td>
+                                                    <td width="">{students.phone_no}</td>
+                                                    <td width="">{students.address}</td>
+                                                    <td width="">{students.university}</td>
+                                                    <td width="">{students.campus}</td>
+                                                    <td width="">{students.degree}</td>
+                                                    <td width="">{students.country}</td>
+                                                    <td width="">{students.field_of_study}</td>
+                                                    <td width="">
+                                                        <a href={students.linkedin_profile}>
+                                                            {students.linkedin_profile}
+                                                        </a>
+                                                    </td>
                                                     <td><Button variant="danger">Delete</Button></td>
                                                     <td><Button variant="secondary">Edit</Button></td>
                                                 </tr>
