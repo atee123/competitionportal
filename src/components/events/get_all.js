@@ -101,86 +101,118 @@ class GetAll extends Component {
                <div> 
                    
                    <Container fluid >
+
                     <h1 style={{textAlign:'center'}}>All Events</h1>
                     <Link to='/events'> <Button variant="success" className="float-right">Add Events</Button></Link>
-                    <Table bordered hover responsive="lg">
+                    <Table responsive="lg">
                         <thead>
                         <tr>
-                            <th width="5%">#</th>
-                            <th width="5%">Name</th>
-                            <th width="5%">Email</th>
-                            <th width="10%">Description</th>
-                            <th width="10%">Start Date</th>
-                            <th width="10%">End Date</th>
+                            <th width="">#</th>
+                            <th width="">Name</th>
+                            <th width="">Email</th>
+                            <th width="30%">Description</th>
+                            <th width="">Start Date</th>
+                            <th width="">End Date</th>
                             {/* <th width="5%">Orgnization</th> */}
-                            <th width="10%">Contact Person</th>
-                            <th width="10%">Venue</th>
-                            <th width="10%">Phone#</th>
-                            <th width="5%">Mobile</th>
+                            <th width="">Contact Person</th>
+                            <th width="">Venue</th>
+                            <th width="">Phone#</th>
+                            <th width="">Mobile</th>
                             {/* <th width="10%">Register URL</th> */}
-                            <th width="20%">Register</th>
-                            <th width="10%">Login</th>
-                            <th width="5%">Website</th>
-                            <th width="5%">Delete</th>
-                            <th width="5%">Edit</th>
+                            <th width="">Register</th>
+                            <th width="">Login</th>
+                            <th width="">Website</th>
+                            <th width="">Delete</th>
+                            <th width="">Edit</th>
                             
                   
                         </tr>
                         </thead>
                         <tbody>
 
-                        {this.state.data.map((data , index) => (
+                        {this.state.data.length == 0 ?
+                                // <tr> <td className="text-center" style={{color:'red', textAlign: 'center'}}> No Record Found </td> </tr>
+                                    
 
-                            <tr key={index}>
-                            <td width="5%">{index + 1}</td>
-                            <td width="5%">{data.name}</td>
-                            <td width="5%">{data.email}</td>
-                            <td width="50%" style={{wordWrap:'break-word'}}>{data.description.substring(0,100)}...</td>
-                            <td width="10%">{data.start_date}</td>
-                            <td width="10%">{data.end_date}</td>
-                            {/* <td width="5%">{data.orgnization_id}</td> */}
-                            <td width="10%">{data.contact_person}</td>
-                            <td width="10%">{data.venue}</td>
-                            <td width="5%">{data.phone_no}</td>
-                            <td width="5%">{data.mobile_no}</td>
-                            
-                            <td width="10%">
+                                    <tr>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width="" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        <td width=""></td>
+                                        
+                                    </tr>
 
-                                <a href={process.env.React_App_Register_URL+"?event="+data.event_token+"&role_token="+data.student_token} target="_blank"><Button variant="primary">Student</Button></a> <br></br><br></br>
-                                <a href={process.env.React_App_Register_URL+"?event="+data.event_token+"&role_token="+data.mentor_token} target="_blank"><Button variant="primary">Mentor</Button></a> <br></br><br></br>
-                                <a href='/add_judge' ><Button variant="primary">Judge</Button></a>
-                            
-                            </td>
+                                :null}
 
-                            <td width="10%">
+                                {this.state.data.length != 0 ?
 
-                                    <a href={process.env.React_App_Login_URL+"?event="+data.event_token} target="_blank"><Button variant="primary">Login</Button></a> <br></br><br></br>
-                            
-                            </td>
 
-                            <td width="10%">
-                                <a href={data.website} target="_blank">
-                                {data.website}
-                                </a>
-                                </td>
+                                    this.state.data.map((data , index) => (
 
-                            <td width="5%">
+                                        <tr key={index}>
+                                        <td width="">{index + 1}</td>
+                                        <td width="" style={{overflowWrap: 'break-word', wordWrap: 'break-word'}}>{data.name}</td>
+                                        <td width="">{data.email}</td>
+                                        <td width="" style={{wordWrap:'break-word'}}>{data.description.substring(0,100)}...</td>
+                                        <td width="">{data.start_date}</td>
+                                        <td width="">{data.end_date}</td>
+                                        {/* <td width="5%">{data.orgnization_id}</td> */}
+                                        <td width="">{data.contact_person}</td>
+                                        <td width="">{data.venue}</td>
+                                        <td width="">{data.phone_no}</td>
+                                        <td width="">{data.mobile_no}</td>
+                                        
+                                        <td width="">
 
-                                <a style={{cursor:'pointer'}} onClick={() => this.deleteId(data.id)}>
-					                <Button variant="danger">Delete</Button>
-                                </a>
+                                            <a href={process.env.React_App_Register_URL+"?event="+data.event_token+"&role_token="+data.student_token} target="_blank"><Button variant="primary">Student</Button></a> <br></br><br></br>
+                                            <a href={process.env.React_App_Register_URL+"?event="+data.event_token+"&role_token="+data.mentor_token} target="_blank"><Button variant="primary">Mentor</Button></a> <br></br><br></br>
+                                            <a href='/add_judge' ><Button variant="primary">Judge</Button></a>
+                                        
+                                        </td>
 
-                            </td>
+                                        <td width="">
 
-                            <td width="5%">
-                                <Link to={'/edit_event/'+data.id} style={{cursor:'pointer'}}>
-					                <Button variant="secondary">Edit</Button>
-                                </Link>
-                            </td>
-                            
-                        </tr>
+                                                <a href={process.env.React_App_Login_URL+"?event="+data.event_token} target="_blank"><Button variant="primary">Login</Button></a> <br></br><br></br>
+                                        
+                                        </td>
 
-                        ))}  
+                                        <td width="" style={{overflowWrap: 'break-word', wordWrap: 'break-word'}}>
+                                            <a href={data.website} target="_blank">
+                                            {data.website.substring(0,25)}
+                                            </a>
+                                        </td>
+
+                                        <td width="">
+
+                                            <a style={{cursor:'pointer'}} onClick={() => this.deleteId(data.id)}>
+                                                <Button variant="danger">Delete</Button>
+                                            </a>
+
+                                        </td>
+
+                                        <td width="">
+                                            <Link to={'/edit_event/'+data.id} style={{cursor:'pointer'}}>
+                                                <Button variant="secondary">Edit</Button>
+                                            </Link>
+                                        </td>
+                                        
+                                    </tr>
+
+                                    ))
+
+                                    // <h1>hello</h1>
+                                :null}  
                         
 
                         </tbody>

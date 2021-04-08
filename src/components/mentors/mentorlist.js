@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Table , Alert , Form , FormControl,Modal , Button} from 'react-bootstrap'
-import Container from 'react-bootstrap/Container'
+import {Table , Alert , Form , FormControl,Modal , Button, Container, Col, Row} from 'react-bootstrap'
 import axios from "axios"
 
 class MentorList extends Component {
@@ -71,11 +70,13 @@ class MentorList extends Component {
 
         // const { isLoading, data, error } = this.state;
 
-        return (
-            <div>
-               <div> 
+        return ( 
                    
-                   <Container fluid >
+            <Container fluid >
+                <Row>
+                    <Col>
+
+
                     <h1 style={{textAlign:'center'}}>Mentor List</h1>
                     {/* <Link to='/events'> <Button variant="success" className="float-right">Add Events</Button></Link> */}
 
@@ -85,27 +86,27 @@ class MentorList extends Component {
                                 </div>
                             :null}
 
-                    <Table bordered hover responsive="lg">
+                    <Table responsive="lg">
                         <thead>
                         <tr>
-                            <th width="5%">#</th>
-                            <th width="5%">Name</th>
-                            <th width="5%">Email</th>
-                            <th width="10%">city</th>
-                            <th width="5%">Event Name</th>
-                            <th width="10%">Mobile No</th>
-                            <th width="10%">Phone No </th>
+                            <th >#</th>
+                            <th >Name</th>
+                            <th >Email</th>
+                            <th >city</th>
+                            <th >Event Name</th>
+                            <th >Mobile No</th>
+                            <th >Phone No </th>
                             {/* <th width="5%">Orgnization</th> */}
-                            <th width="10%">Address</th>
-                            <th width="10%">University</th>
-                            <th width="10%">Campus</th>
-                            <th width="5%">Degree</th>
-                            <th width="5%">Country</th>
+                            <th >Address</th>
+                            <th >University</th>
+                            <th >Campus</th>
+                            <th >Degree</th>
+                            <th >Country</th>
                             {/* <th width="10%">Register URL</th> */}
-                            <th width="10%">Field of Study</th>
-                            <th width="10%">LinkedIn</th>
-                            <th width="5%">Delete</th>
-                            <th width="5%">Edit</th>
+                            <th >Field of Study</th>
+                            <th >LinkedIn</th>
+                            <th >Delete</th>
+                            <th >Edit</th>
                             
                   
                         </tr>
@@ -113,7 +114,28 @@ class MentorList extends Component {
                         <tbody>
 
                         {this.state.data.length == 0 ?
-                        <tr> <p style={{color:'red'}}>No Record found </p></tr>
+                        
+                        
+                            <tr>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td> 
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width="" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                <td width=""></td>
+                                
+                            </tr>
 
                         :null}
                              {this.state.data.length != 0 ?
@@ -121,22 +143,22 @@ class MentorList extends Component {
                                         this.state.data.map((mentors, index) => (
 
                                             <tr key={index}>
-                                                <td width="5%">{index + 1}</td>
-                                                <td width="5%">{mentors.first_name}</td>
-                                                <td width="5%">{mentors.email}</td>
-                                                <td width="5%">{mentors.city}</td>
-                                                <td width="5%">{mentors.event_name}</td>
-                                                <td width="5%">{mentors.mobile_no}</td>
-                                                <td width="5%">{mentors.phone_no}</td>
-                                                <td width="5%">{mentors.address}</td>
-                                                <td width="5%">{mentors.university}</td>
-                                                <td width="5%">{mentors.campus}</td>
-                                                <td width="5%">{mentors.degree}</td>
-                                                <td width="5%">{mentors.country}</td>
-                                                <td width="5%">{mentors.field_of_study}</td>
-                                                <td width="5%"><a href={mentors.linkedin_profile}>{mentors.linkedin_profile}</a></td>
-                                                <td><Button variant="primary">Delete</Button></td>
-                                                <td><Button variant="primary">Edit</Button></td>
+                                                <td >{index + 1}</td>
+                                                <td >{mentors.first_name}</td>
+                                                <td >{mentors.email}</td>
+                                                <td >{mentors.city}</td>
+                                                <td >{mentors.event_name}</td>
+                                                <td >{mentors.mobile_no}</td>
+                                                <td >{mentors.phone_no}</td>
+                                                <td >{mentors.address}</td>
+                                                <td >{mentors.university}</td>
+                                                <td >{mentors.campus}</td>
+                                                <td >{mentors.degree}</td>
+                                                <td >{mentors.country}</td>
+                                                <td >{mentors.field_of_study}</td>
+                                                <td ><a href={mentors.linkedin_profile}>{mentors.linkedin_profile}</a></td>
+                                                <td><Button variant="danger">Delete</Button></td>
+                                                <td><Button variant="secondary">Edit</Button></td>
                                             </tr>
                                         ))
 
@@ -164,10 +186,12 @@ class MentorList extends Component {
                     
 
 
-                    </Container>
+
+
+                    </Col>
+                </Row>        
+            </Container>
   
-            </div>
-        </div>
         );
     }
 }

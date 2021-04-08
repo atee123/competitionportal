@@ -1,9 +1,6 @@
 import React, { Component, BackHandler } from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import { BrowserRouter as Router , Route , Link, Redirect } from "react-router-dom"
-import {Alert , Form , FormControl , Button} from 'react-bootstrap'
+import {Container, Row, Col, Alert , Form , FormControl , Button} from 'react-bootstrap'
 import axios from "axios"
 import * as qs from "query-string"
 import FlashMessage from 'react-flash-message'
@@ -153,7 +150,7 @@ class Add extends Component {
     handleSubmit(event) {
 
         // console.log(this.state.venue)
-        // console.log('working')
+        console.log('working')
         event.preventDefault()
 
         const formData = {}
@@ -196,7 +193,7 @@ class Add extends Component {
         
         axios(axiosOptions)
             .then(response => {
-                // console.log(response)
+                console.log(response)
                 
                 if(response.data.status == 0){
 
@@ -311,148 +308,205 @@ class Add extends Component {
     render() {
 
         return (
-            <div>
-                 <Container>              
+            <Container fluid>
+                <Row>
+                    <Col>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <h1 className="text-center mt-4 mb-4">Judge Register</h1>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
 
-                    <div style={{height: "100px"}}></div>
-                    <section >
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-lg-3"></div>
-                                <div class="col-12 col-lg-6">
-                                    <h1 style={{textAlign:'center'}}>Judge Registeration</h1>
-                                    <form name="user form" method="POST" onSubmit={event => this.handleSubmit(event)}>
+                                    <Form name="judge form" method="POST" onSubmit={event => this.handleSubmit(event)}>
 
                                     {this.state.errorStatus == 'error' ?
-                                        <div class="col-12 m-0 p-2 input-group">
+                                        <Form.Row>
+                                            <Col>
                                             
                                             <FlashMessage duration={4000} persistOnHover={true}>
-                                                <h5 id="flash_message_heading" style={{color: 'red'}}>{this.state.error_messages}</h5>
+                                                <h5 className="text-center" id="flash_message_heading" style={{color: 'red'}}>{this.state.error_messages}</h5>
                                             </FlashMessage>
                                             {/* <p style={{color: 'red'}}> {this.state.error_messages}</p> */}
 
-                                        </div>
+                                            </Col>
+                                        </Form.Row>
                                     :null}
 
+
                                     {this.state.errorStatus == 'success'?
-                                        <div class="col-12 m-0 p-2 input-group">
-                                            <div style={{ paddingLeft: "8%" }}>
-                                                <FlashMessage duration={4000} persistOnHover={true}>
-                                                    <h5 id="flash_message_heading" style={{color: 'green'}}>{this.state.messag}</h5>
+                                        <Form.Row>
+                                            <Col>
+
+                                                
+                                                <FlashMessage duration={1000} persistOnHover={true}>
+                                                    <h5 className="text-center" id="flash_message_heading" style={{color: 'green'}}>{this.state.messag}</h5>
                                                 </FlashMessage>
                                                 {/* {this.handleReset()} */}
-                                                {/* <Redirect to="/judges"/> */}
-                                            </div>
-                                            {/* <p style={{color:'green'}}>{this.state.messag}
+                                                <Redirect to="/judges"/>
+                                            </Col>
+                                        </Form.Row>
+                                    :null}
 
-                                            <Redirect to="/verify_code"  />
-                                            </p> */}
-                                            </div>
-                                        :null}
-
-
-                                        <div class="row form-group-margin">
-                                            
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-
-                                                <label>First Name</label>
-                                                <input type="text" name="first_name" placeholder="First Name" onChange={this.handleChange}/>
-                                                {this.state.msg2.first_name != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextFirstName">
+                                            <Form.Label column sm="2">
+                                            First Name 
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="first_name" placeholder="First Name" onChange={this.handleChange}/>
+                                            {this.state.msg2.first_name != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.first_name}</span>
                                                 ) : null}
-                                                
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Last Name</label>
-                                                <input type="text" name="last_name" placeholder="Last Name" onChange={this.handleChange}/>
-                                                {this.state.msg2.last_name != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextLastName">
+                                            <Form.Label column sm="2">
+                                            Last Name
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="last_name" placeholder="Last Name" onChange={this.handleChange}/>
+                                            {this.state.msg2.last_name != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.last_name}</span>
                                                 ) : null}
-                                                             
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-12 col-lg-12 m-0 p-2 input-group">
-                                                <label>Email</label>
-                                                <input type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
-                                                {this.state.msg2.email != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextEmail">
+                                            <Form.Label column sm="2">
+                                            Email
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="email" name="email" placeholder="Email" onChange={this.handleChange}/>
+                                            {this.state.msg2.email != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.email}</span>
                                                 ) : null}
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Password</label>
-                                                <input type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
-                                                {this.state.msg2.password != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                                            <Form.Label column sm="2">
+                                            Password
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
+                                            {this.state.msg2.password != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.password}</span>
                                                 ) : null}
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Confirm Password</label>
-                                                <input type="password" name="confirm_password" placeholder="Confirm Password" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextConfirmPassword">
+                                            <Form.Label column sm="2">
+                                            Confirm Password
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="password" name="confirm_password" placeholder="Confirm Password" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>City</label>
-                                                <input type="text" name="city" placeholder="City" onChange={this.handleChange}/>
-                                                {this.state.msg2.city != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextCity">
+                                            <Form.Label column sm="2">
+                                            City
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="city" placeholder="City" onChange={this.handleChange}/>
+                                            {this.state.msg2.city != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.city}</span>
                                                 ) : null}
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Mobile Number</label>
-                                                <input type="text" name="mobile_no" placeholder="Mobile Number" onChange={this.handleChange}/>
-                                                {this.state.msg2.mobile_no != undefined ? (
+                                        <Form.Group as={Row} controlId="formPlaintextMobleNo">
+                                            <Form.Label column sm="2">
+                                            Mobile Number
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="mobile_no" placeholder="Mobile Number" onChange={this.handleChange} />
+                                            {this.state.msg2.mobile_no != undefined ? (
                                                     <span style={{color: 'red'}}> {this.state.msg2.mobile_no}</span>
                                                 ) : null}
-                                            </div>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Country</label>
-                                                <input type="text" name="country" placeholder="Country" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextCountry">
+                                            <Form.Label column sm="2">
+                                            Country
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="country" placeholder="Country" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Address</label>
-                                                <input type="text" name="address" placeholder="Address" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextAddress">
+                                            <Form.Label column sm="2">
+                                            Address
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="address" placeholder="Address" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Orgnization Name</label>
-                                                <input type="text" name="org_name" placeholder="Orgnization Name" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextOrgnizationName">
+                                            <Form.Label column sm="2">
+                                            Orgnization Name
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="org_name" placeholder="Orgnization Name" onChange={this.handleChange}/>
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Designation</label>
-                                                <input type="text" name="designation" placeholder="Designation" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextDesignation">
+                                            <Form.Label column sm="2">
+                                            Designation
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="designation" placeholder="Designation" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Education</label>
-                                                <input type="text" name="education" placeholder="Education" onChange={this.handleChange}/>
-                                            </div>
+                                        <Form.Group as={Row} controlId="formPlaintextEducation">
+                                            <Form.Label column sm="2">
+                                            Education
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="education" placeholder="Education" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
 
-                                            <div class="col-12 col-md-6 col-lg-6 m-0 p-2 input-group">
-                                                <label>Work Experience</label>
-                                                <input type="text" name="work_exp" placeholder="Work Experience" onChange={this.handleChange}/>
-                                            </div>
-                                            
-                                            <div class="col-12 input-group m-0 p-2">
-                                                <input type="submit" class="float-right btn btn-success" value="Register" style={{marginLeft:"45%"}}/>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        <Form.Group as={Row} controlId="formPlaintextWorkExperience">
+                                            <Form.Label column sm="2">
+                                            Work Experience
+                                            </Form.Label>
+                                            <Col sm="10">
+                                            <Form.Control type="text" name="work_experience" placeholder="Work Experience" onChange={this.handleChange} />
+                                            </Col>
+                                        </Form.Group>
+                                        <Form.Row>
+                                            <Form.Label column sm="2">
 
-                                <div class="col-12 col-lg-3"></div>
-                            </div>
-                        </div>
-                    </section>
-                
-                </Container>
-            </div>
+                                            </Form.Label>
+
+                                            <Col sm="5">
+                                                <Button type="submit" href={this.state.event_token}> Reset </Button>
+                                            </Col>
+                                            {/* <Col sm="7">
+                                            </Col> */}
+                                            <Col sm="5" className="text-right">
+                                                <Button type="submit"> Register </Button>
+                                            </Col>
+                                        </Form.Row>
+                                        
+                                        
+                                    </Form>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }
