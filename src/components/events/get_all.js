@@ -99,18 +99,41 @@ class GetAll extends Component {
         return (
             <div>
                <div> 
+
+               <style type="text/css">
+                    {`
+                    .btn-flat {
+                    background-color: purple;
+                    color: white;
+                    }
+
+                    .btn-xxl {
+                    padding: 1rem 1.5rem;
+                    font-size: 1.5rem;
+                    }
+
+                    .text {
+
+                    }
+                    `}
+                    </style>
                    
                    <Container fluid >
 
                     <h1 style={{textAlign:'center'}}>All Events</h1>
                     <Link to='/events'> <Button variant="success" className="float-right">Add Events</Button></Link>
-                    <Table responsive="lg">
+
+                    {/* <Button variant="flat" size="xs">
+                    flat button
+                    </Button> */}
+
+                    <Table style={{fontSize: '0.9rem'}} responsive>
                         <thead>
                         <tr>
                             <th width="">#</th>
                             <th width="">Name</th>
                             <th width="">Email</th>
-                            <th width="30%">Description</th>
+                            <th width="600">Description</th>
                             <th width="">Start Date</th>
                             <th width="">End Date</th>
                             {/* <th width="5%">Orgnization</th> */}
@@ -132,28 +155,16 @@ class GetAll extends Component {
 
                         {this.state.data.length == 0 ?
                                 // <tr> <td className="text-center" style={{color:'red', textAlign: 'center'}}> No Record Found </td> </tr>
+
                                     
+                            <tr>
+                            
+                                <td colSpan="15" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
+                            
+                            </tr>
+                                                                        
 
-                                    <tr>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width="" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        
-                                    </tr>
-
-                                :null}
+                        :null}
 
                                 {this.state.data.length != 0 ?
 
@@ -167,7 +178,6 @@ class GetAll extends Component {
                                         <td width="" style={{wordWrap:'break-word'}}>{data.description.substring(0,100)}...</td>
                                         <td width="">{data.start_date}</td>
                                         <td width="">{data.end_date}</td>
-                                        {/* <td width="5%">{data.orgnization_id}</td> */}
                                         <td width="">{data.contact_person}</td>
                                         <td width="">{data.venue}</td>
                                         <td width="">{data.phone_no}</td>
@@ -214,7 +224,6 @@ class GetAll extends Component {
                                     // <h1>hello</h1>
                                 :null}  
                         
-
                         </tbody>
 
                     </Table>

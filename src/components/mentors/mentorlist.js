@@ -86,7 +86,7 @@ class MentorList extends Component {
                                 </div>
                             :null}
 
-                    <Table responsive="lg">
+                    <Table style={{fontSize: '0.9rem'}} responsive>
                         <thead>
                         <tr>
                             <th >#</th>
@@ -117,23 +117,8 @@ class MentorList extends Component {
                         
                         
                             <tr>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td> 
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width="" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
-                                <td width=""></td>
+                                
+                                <td colSpan="17" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
                                 
                             </tr>
 

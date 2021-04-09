@@ -71,7 +71,7 @@ class JudgeList extends Component {
                         <Col>
 
                             {/* <h1 style={{textAlign:'center'} }>All Judges</h1> */}
-                            <h1 className="text-center mt-4 mb-4">All Judges</h1>
+                            <h1 style={{textAlign:'center'}}>All Judges</h1>
                             {/* <Link to='/events'> <Button variant="success" className="float-right">Add Events</Button></Link> */}
 
                                     {/* {this.state.errorStatus == 'error'?
@@ -84,7 +84,7 @@ class JudgeList extends Component {
                                     <Button variant="success" className="float-right">Add Judge</Button>
                                 </Link>
 
-                            <Table responsive="lg">
+                            <Table style={{fontSize: '0.9rem'}} responsive>
                                 <thead>
                                 <tr>
                                     <th >#</th>
@@ -113,19 +113,9 @@ class JudgeList extends Component {
                                     
 
                                     <tr>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td> 
-                                        <td width=""></td>
-                                        <td width="" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
-                                        <td width=""></td>
+                                        
+                                        <td colSpan="13" style={{color:'red', textAlign: 'center'}}>Record not Found </td>
+                                        
                                         
                                     </tr>
 
