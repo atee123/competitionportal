@@ -490,12 +490,12 @@ class Add extends Component {
                                             </Form.Label>
 
                                             <Col sm="5">
-                                                <Button type="submit" href={this.state.event_token}> Reset </Button>
+                                                <Button type="submit" variant="light"> Reset </Button>
                                             </Col>
                                             {/* <Col sm="7">
                                             </Col> */}
                                             <Col sm="5" className="text-right">
-                                                <Button type="submit"> Register </Button>
+                                                <Button type="submit" variant="success"> Register </Button>
                                             </Col>
                                         </Form.Row>
                                         
